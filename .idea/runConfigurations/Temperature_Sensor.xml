@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Temperature Sensor" type="Application" factoryName="Application" singleton="false">
+    <option name="MAIN_CLASS_NAME" value="mars.client.SensorClient" />
+    <module name="FB_Marsbase-Monitoring" />
+    <option name="PROGRAM_PARAMETERS" value="Temp" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="mars.client.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
