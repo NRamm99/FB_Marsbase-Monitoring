@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="CO2 Sensor" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="mars.client.SensorClient" />
+    <module name="FB_Marsbase-Monitoring" />
+    <option name="PROGRAM_PARAMETERS" value="CO2" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
