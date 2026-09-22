@@ -3,6 +3,8 @@ package mars.server;
 import mars.domain.SensorMeasurement;
 import mars.domain.SensorType;
 
+import java.util.Locale;
+
 public class SensorParser {
 
     // Omdanner en besked som "TEMP|22.5" til en måling.
@@ -13,7 +15,7 @@ public class SensorParser {
             throw new IllegalArgumentException("Ugyldigt målingsformat");
         }
 
-        SensorType type = SensorType.valueOf(parts[0].trim().toUpperCase());
+        SensorType type = SensorType.valueOf(parts[0].trim().toUpperCase(Locale.ROOT));
         double value = Double.parseDouble(parts[1].trim());
 
         if (!Double.isFinite(value)) {

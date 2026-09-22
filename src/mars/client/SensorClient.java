@@ -72,6 +72,6 @@ public class SensorClient {
             case CO2 -> 400 + random.nextDouble() * 2600;
         };
 
-        return String.format(Locale.ROOT, "%s | %.1f", type, value);
+        return String.format(Locale.ROOT, "%s| %.1f", type, value);
     }
 }

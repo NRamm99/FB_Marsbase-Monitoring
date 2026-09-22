@@ -2,6 +2,7 @@ package mars.server;
 
 import mars.domain.SensorMeasurement;
 import mars.domain.SensorType;
+import mars.application.AlarmService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,6 +15,7 @@ public class SensorHandler implements Runnable {
 
     private final Socket sensor;
     private final SensorParser parser = new SensorParser();
+    private final AlarmService alarmService = new AlarmService();
     private static final MarsLogger logger = new MarsLogger();
 
     public SensorHandler(Socket sensor) {
@@ -58,18 +60,11 @@ public class SensorHandler implements Runnable {
 
     // Kontrollerer sensortypen og dens værdi på serveren.
     private boolean validateMeasurement(SensorMeasurement measurement) {
-        SensorType type = measurement.getType();
-        double value = measurement.getValue();
-
-        boolean alarm = switch (type) {
-            case TEMP -> value < -15 || value > 35;
-            case O2 -> value < 19 || value > 23;
-            case CO2 -> value > 2000;
-        };
+        boolean alarm = alarmService.isOutOfRange(measurement);
 
         if (alarm) {
-            System.out.println(timestamp() + " [ALARM] " + type
-                    + " er uden for grænsen: " + value);
+            System.out.println(timestamp() + " [ALARM] " + measurement.getType()
+                    + " måling er uden for grænseværdier: " + measurement.getValue()); ;
         }
 
         return alarm;
