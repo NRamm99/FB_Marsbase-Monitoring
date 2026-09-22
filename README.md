@@ -6,7 +6,7 @@ Serveren kan håndtere flere sensorer samtidig med flere tråde.
 ## Funktioner
 
 - Sensorerne sender en måling hvert 5. sekund.
-- Beskeder sendes i formatet `TEMP|22.5`, `O2|20.9` eller `CO2|987.2`.
+- Beskeder sendes i formatet `TEMP | 22.5`, `O2 | 20.9` eller `CO2 | 987.2`.
 - Serveren parser beskederne til `SensorMeasurement`-objekter.
 - Serveren tjekker målingerne og viser en alarm, hvis en værdi er uden for grænsen.
 - Behandlede målinger gemmes i `mars.log` med dato og tidspunkt.
