@@ -21,8 +21,6 @@ public class MarsServer {
 
             while (!Thread.currentThread().isInterrupted()) {
                 Socket sensor = server.accept();
-                System.out.println("Sensor forbundet.");
-
                 threadPool.execute(new SensorHandler(sensor));
             }
 
